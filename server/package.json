@@ -1,0 +1,21 @@
+{
+  "name": "pointo-backend",
+  "version": "1.0.0",
+  "description": "This is Pointo Task Manager Backend written using Node.js, Express.js and MongoDB.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+  },
+  "author": "Kartik Bhardwaj",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.3",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3"
+  }
+}
