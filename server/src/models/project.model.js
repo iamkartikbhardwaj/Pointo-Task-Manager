@@ -11,10 +11,10 @@ const projectSchema = new Schema(
     },
     description: {
       type: String,
-      required: true,
+      trim: true,
     },
   },
   { timestamps: true }
 );
 
-export const Project = mongoose.model("Project", projectSchema);
+export default mongoose.model("Project", projectSchema);

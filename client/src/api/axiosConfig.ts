@@ -1,15 +1,7 @@
 // src/api/axiosConfig.ts
 import axios from "axios";
-import type { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+import type { AxiosError, AxiosInstance } from "axios";
 import { toast } from "sonner";
-
-// match your backend wrapper
-interface ApiResponse<T> {
-  statusCode: number;
-  data: T;
-  message: string;
-  success: boolean;
-}
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1",
@@ -28,15 +20,15 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (response: AxiosResponse<ApiResponse<any>>) => {
-    const { success, message, data } = response.data;
+  (response: any) => {
+    const body = response.data;
 
-    if (!success) {
-      toast.error(message || "An error occurred");
-      return Promise.reject(new Error(message));
+    if (!body.success) {
+      toast.error(body.message || "An error occurred");
+      return Promise.reject(new Error(body.message));
     }
 
-    return data;
+    return body;
   },
 
   (error: AxiosError) => {
