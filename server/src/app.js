@@ -1,6 +1,22 @@
 import express from "express";
 import cors from "cors";
 const app = express();
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:"],
+      },
+    },
+  })
+);
 
 app.use(
   cors({
@@ -10,12 +26,17 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(rateLimit({ windowMs: 15 * 60_000, max: 100 }));
+
 app.use(
   express.json({
     limit: "16kb",
   })
 );
+
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
+
 app.use(express.static("public"));
 
 // routes
