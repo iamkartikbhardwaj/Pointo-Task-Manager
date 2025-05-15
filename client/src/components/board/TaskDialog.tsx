@@ -17,8 +17,8 @@ import { Popover, PopoverTrigger, PopoverContent } from "../ui/popover";
 import { Calendar } from "../ui/calendar";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
-
-import type { Column, Task } from "@/api/mock";
+import type { Column } from "@/api/columns";
+import type { Task } from "@/api/tasks";
 
 export interface TaskDialogProps {
   columns: Column[];

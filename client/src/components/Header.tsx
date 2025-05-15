@@ -1,4 +1,4 @@
-import logo from "../assets/Logo.avif"; // adjust path/filename as needed
+import logo from "../assets/Logo.avif";
 
 const Header = () => {
   return (

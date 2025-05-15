@@ -1,4 +1,4 @@
-import type { Task } from "@/api/mock";
+import type { Task } from "@/api/tasks";
 import { ActionsMenu } from "../ActionsMenu";
 import { EllipsisVertical } from "lucide-react";
 

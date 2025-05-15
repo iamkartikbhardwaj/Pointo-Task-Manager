@@ -74,7 +74,6 @@ function App() {
     try {
       await deleteProject(deletingProject._id);
       setProjects((prev) => prev.filter((p) => p._id !== deletingProject._id));
-      // if you deleted the active one, pick another or clear
       if (active?._id === deletingProject._id) {
         const remaining = projects.filter((p) => p._id !== deletingProject._id);
         setActive(remaining[0] ?? null);

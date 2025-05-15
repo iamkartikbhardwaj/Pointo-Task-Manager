@@ -163,8 +163,8 @@ export function Board({ project, onEditProject, onDeleteProject }: BoardProps) {
       });
 
       await updateTaskPositions(project._id, reordered);
-    } catch (error) {
-      console.error("Failed to update task positions:", error);
+    } catch {
+      // errors are handled by axios interceptor
     }
   };
 
@@ -174,7 +174,7 @@ export function Board({ project, onEditProject, onDeleteProject }: BoardProps) {
       setColumns((prev) => prev.map((c) => (c._id === saved._id ? saved : c)));
       toast.success("Board updated");
     } catch {
-      toast.error("Failed to update board");
+      // errors are handled by axios interceptor
     } finally {
       setEditingColumn(null);
     }
@@ -187,7 +187,7 @@ export function Board({ project, onEditProject, onDeleteProject }: BoardProps) {
       setColumns((prev) => prev.filter((c) => c._id !== deletingColumn._id));
       toast.success("Board deleted");
     } catch {
-      toast.error("Failed to delete board");
+      // errors are handled by axios interceptor
     } finally {
       setDeletingColumn(null);
     }
@@ -199,7 +199,7 @@ export function Board({ project, onEditProject, onDeleteProject }: BoardProps) {
       setTasks((prev) => prev.map((t) => (t._id === saved._id ? saved : t)));
       toast.success("Task updated");
     } catch {
-      toast.error("Failed to update task");
+      // errors are handled by axios interceptor
     } finally {
       setEditingTask(null);
     }
@@ -211,7 +211,7 @@ export function Board({ project, onEditProject, onDeleteProject }: BoardProps) {
       setTasks((prev) => prev.filter((t) => t._id !== deletingTask._id));
       toast.success("Task deleted");
     } catch {
-      toast.error("Failed to delete task");
+      // errors are handled by axios interceptor
     } finally {
       setDeletingTask(null);
     }
