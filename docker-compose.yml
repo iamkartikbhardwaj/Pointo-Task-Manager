@@ -1,4 +1,3 @@
-# docker-compose.yml  ← at the root of your repo
 services:
   server:
     build:
