@@ -67,7 +67,7 @@ export function ProjectDialog({
           </DialogTitle>
         </DialogHeader>
 
-        <div className="flex flex-col space-y-1.5 mb-4 mt-2">
+        <div className="flex flex-col space-y-1.5 mt-2">
           <Label htmlFor="project-title">Project Name</Label>
           <Input
             id="project-title"
@@ -75,7 +75,9 @@ export function ProjectDialog({
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
+        </div>
 
+        <div className="flex flex-col space-y-1.5 mb-4">
           <Label htmlFor="project-desc">Description</Label>
           <Textarea
             id="project-desc"
