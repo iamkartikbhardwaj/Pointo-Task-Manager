@@ -27,7 +27,7 @@ A full-stack Kanban-style task manager built with React + Vite (client) and Node
 ## 🔥 Features
 
 - **Projects**: Create, edit, delete projects (title + description).
-- **Boards (Columns)**: Add, edit, delete columns within projects; drag-and-drop ordering.
+- **Boards (Columns)**: Add, edit, delete columns within projects.
 - **Tasks**: Add, edit, delete, reorder tasks (title, description, due date).
 - **Drag & Drop**: Powered by @hello-pangea/dnd.
 - **Toasts**: Feedback on actions via Sonner.
@@ -38,7 +38,7 @@ A full-stack Kanban-style task manager built with React + Vite (client) and Node
 
 ## 🛠 Tech Stack
 
-- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui
+- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS, shadcn/ui
 - **Backend**: Node.js 20, Express, Mongoose, MongoDB Atlas
 - **DevOps**: Docker, Docker Compose, Nginx
 
@@ -47,7 +47,6 @@ A full-stack Kanban-style task manager built with React + Vite (client) and Node
 ## ✅ Prerequisites
 
 - Docker & Docker Compose installed
-- (Optional) MongoDB Atlas cluster or local MongoDB URI
 
 ---
 
@@ -75,8 +74,7 @@ cp client/.env.example client/.env
   ```ini
   PORT=8000
   MONGO_URI=your-mongodb-connection-string-here
-  JWT_SECRET=your-jwt-secret-here
-  FRONTEND_ORIGIN=http://localhost
+  CORS_ORIGIN=http://localhost
   ```
 
 - **`client/.env`**

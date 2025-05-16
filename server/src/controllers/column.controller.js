@@ -26,7 +26,7 @@ export const createColumn = catchAsync(async (req, res) => {
   res.status(201).json({ success: true, data: col });
 });
 
-// PATCH /api/v1/projects/:projectId/columns/positions
+// POST /api/v1/projects/:projectId/columns/positions
 export const updateColumnPositions = catchAsync(async (req, res) => {
   const list = req.body.columns;
   if (!Array.isArray(list)) throw new apiError(400, "Invalid payload");
@@ -36,7 +36,7 @@ export const updateColumnPositions = catchAsync(async (req, res) => {
   res.json({ success: true, message: "Positions updated." });
 });
 
-// PATCH /api/v1/projects/:projectId/columns/:columnId
+// POST /api/v1/projects/:projectId/columns/:columnId
 export const updateColumn = catchAsync(async (req, res) => {
   const { title, position } = req.body;
   const col = await Column.findOne({

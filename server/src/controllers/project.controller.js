@@ -36,7 +36,7 @@ export const getProject = catchAsync(async (req, res) => {
   res.json({ success: true, data: proj });
 });
 
-// PATCH /api/v1/projects/:id
+// POST /api/v1/projects/:id
 export const updateProject = catchAsync(async (req, res) => {
   const { title, description } = req.body;
   const proj = await Project.findById(req.params.id);

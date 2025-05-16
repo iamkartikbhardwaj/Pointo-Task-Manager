@@ -27,7 +27,7 @@ export const createTask = catchAsync(async (req, res) => {
   res.status(201).json({ success: true, data: task });
 });
 
-// PATCH /api/v1/projects/:projectId/tasks/positions
+// POST /api/v1/projects/:projectId/tasks/positions
 export const updateTaskPositions = catchAsync(async (req, res) => {
   const list = req.body.tasks;
   if (!Array.isArray(list)) throw new apiError(400, "Invalid payload");
@@ -39,7 +39,7 @@ export const updateTaskPositions = catchAsync(async (req, res) => {
   res.json({ success: true, message: "Positions updated." });
 });
 
-// PATCH /api/v1/projects/:projectId/tasks/:taskId
+// POST /api/v1/projects/:projectId/tasks/:taskId
 export const updateTask = catchAsync(async (req, res) => {
   const { title, description, dueDate, columnId, position } = req.body;
   const task = await Task.findOne({
