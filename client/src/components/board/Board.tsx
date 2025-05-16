@@ -268,7 +268,7 @@ export function Board({ project, onEditProject, onDeleteProject }: BoardProps) {
       <ConfirmDialog
         open={!!deletingColumn}
         title="Delete Board?"
-        description="This will delete the board and all its tasks."
+        description="This will delete the board."
         onConfirm={handleConfirmDeleteColumn}
         onCancel={() => setDeletingColumn(null)}
       />
